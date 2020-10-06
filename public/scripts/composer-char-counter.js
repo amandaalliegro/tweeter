@@ -6,9 +6,8 @@ $(document).ready(function() {
 // blur event: it triggers when we *lose focus*
 // keypress event: 
   $("#tweet-text").bind("keyup", function (event) {
-    console.log(140 - $(this).val().length);
     const value = 140 - $("#tweet-text").val().length;
-    console.log(value);
+    $(this).parent().find(".counter").text(value)
 
 
   })

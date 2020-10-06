@@ -1,0 +1,39 @@
+article.tweet {
+  border: 5px solid  dimgray;
+  padding: 0.8em 1.2em;
+  color: black;
+}
+
+article.tweet header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+article.tweet header p {
+  padding: 0 0.8em;
+}
+
+article.tweet header a {
+  text-decoration: none;
+  color: silver;
+  font-weight: 600;
+}
+
+article.tweet footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 5px solid dimgray;
+  padding: 0.6em;
+}
+
+article.tweet footer p {
+  padding: 0;
+  margin: 0;
+}
+
+article.tweet footer div {
+  padding: 0 0.3em;
+  color: royalblue;
+} 

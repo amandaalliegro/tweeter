@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -39,18 +40,18 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <!-- Temporary ramdom content -->
-      <h2>CUPCAKE IPSUM</h2>
-      <p>Cupcake ipsum dolor. Sit amet marshmallow topping cheesecake muffin. 
-      Halvah croissant candy canes bonbon candy. Apple pie jelly beans topping carrot cake danish tart cake cheesecake. 
-      Muffin danish chocolate soufflé pastry icing bonbon oat cake. 
-      Powder cake jujubes oat cake. Lemon drops tootsie roll marshmallow halvah carrot cake.</p>
-
-      <h2>CHEESE IPSUM</h2>
-      <p>Cheese on toast airedale the big cheese. 
-        Danish fontina cheesy grin airedale danish fontina taleggio the big cheese macaroni cheese port-salut. 
-        Edam fromage lancashire feta caerphilly everyone loves chalk and cheese brie. 
-        Red leicester parmesan cheese and biscuits cheesy feet blue castello cheesecake fromage frais smelly cheese.</p>
+      <!-- New Tweet form here -->
+        <section class="new-tweet">
+          <h2>Compose Tweet</h2>
+          <form method="POST" action="/tweets/">
+            <div></div><label for="tweet-text">What are you humming about?</label></div>
+            <textarea name="text" id="tweet-text"></textarea>
+            <footer>
+              <button type="submit">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </footer>
+          </form>
+        </section>
     </main>
   </body>
 </html>

@@ -5,31 +5,31 @@
  */
 
 
-// Fake data taken from initial-tweets.json
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
+// // Fake data taken from initial-tweets.json
+// const data = [
+//   {
+//     "user": {
+//       "name": "Newton",
+//       "avatars": "https://i.imgur.com/73hZDYK.png"
+//       ,
+//       "handle": "@SirIsaac"
+//     },
+//     "content": {
+//       "text": "If I have seen further it is by standing on the shoulders of giants"
+//     },
+//     "created_at": 1461116232227
+//   },
+//   {
+//     "user": {
+//       "name": "Descartes",
+//       "avatars": "https://i.imgur.com/nlhLi3I.png",
+//       "handle": "@rd" },
+//     "content": {
+//       "text": "Je pense , donc je suis"
+//     },
+//     "created_at": 1461113959088
+//   }
+// ]
 
 
 
@@ -70,7 +70,8 @@ $(document).ready(() => {
     })
   
   };
-  renderTweets(data);
+  //renderTweets(data);
+  
   $('form').on('submit', function (event) {
     // Use event.preventDefault() to prevent the default form submission behaviour
     event.preventDefault();
@@ -83,6 +84,18 @@ $(document).ready(() => {
       console.log("Failed!");
     })
   })
+  //that is responsible for fetching tweets from the http://localhost:8080/tweets page
+  const loadTweets = () => {
+    //The loadtweets function will use jQuery to make a request to /tweets and receive the array of tweets as JSON
+    $.ajax({ url: '/tweets/', method: "GET" }).then(response => {
+      console.log("Successful load!!");
+      //so your success callback function will simply call up renderTweets
+      renderTweets(response);
+    }).catch(e => {
+      console.log("Failed to load tweets");
+    })
+  }
+  loadTweets();
 
 });
 

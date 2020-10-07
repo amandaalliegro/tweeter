@@ -34,7 +34,6 @@ const data = [
 
 
 $(document).ready(() => {
-console.log('anything')
   const createTweetElement = (tweetObj) => {
     // calculate how many days after the data of creation we are
     const date = Math.round((Date.now() - tweetObj.created_at) / (1000 * 60 * 60 * 24));
@@ -72,6 +71,19 @@ console.log('anything')
   
   };
   renderTweets(data);
+  $('form').on('submit', function (event) {
+    // Use event.preventDefault() to prevent the default form submission behaviour
+    event.preventDefault();
+    /* server is configured to receive form data formatted as a query string, 
+    .serialize() function, which turns the form data into a query string
+    This serialized data should be sent to the server in the data field of the AJAX POST request */
+    $.ajax({ url: '/tweets/', data: $(this).serialize(), method: "POST" }).then(response => {
+      console.log("Success!")
+    }).catch(e => {
+      console.log("Failed!");
+    })
+  })
+
 });
 
 

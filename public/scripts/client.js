@@ -6,6 +6,11 @@
 
 
 $(document).ready(() => {
+  const escape =  function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
   const createTweetElement = (tweetObj) => {
     // calculate how many days after the data of creation we are
     const date = Math.round((Date.now() - tweetObj.created_at) / (1000 * 60 * 60 * 24));
@@ -13,12 +18,12 @@ $(document).ready(() => {
       <article class="tweet">
         <header>
           <div>
-            <img src="${tweetObj.user.avatars}">
-            <p>${tweetObj.user.name}</p>
+          <img src="${escape(tweetObj.user.avatars)}">
+          <p>${escape(tweetObj.user.name)}</p>
           </div>
-          <a href="#">${tweetObj.user.handle}</a>
+          <a href="#">${escape(tweetObj.user.handle)}</a>
         </header>
-        <p>${tweetObj.content.text}</p>
+        <p>${escape(tweetObj.content.text)}</p>
         <footer>
           <p>${date} days ago</p>
           <div>

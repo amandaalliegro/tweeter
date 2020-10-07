@@ -43,3 +43,10 @@ form button {
 .negative-value {
   color: red;
 }
+
+#compose-tweet:before {
+  content: "";
+  display: block;
+  height: 120px; 
+  margin: -120px 0 0; 
+}

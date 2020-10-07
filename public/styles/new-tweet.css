@@ -50,3 +50,14 @@ form button {
   height: 120px; 
   margin: -120px 0 0; 
 }
+
+#error-message {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5bdbd;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 20px;
+  color: red;
+} 	

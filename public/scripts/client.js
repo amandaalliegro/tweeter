@@ -51,14 +51,33 @@ $(document).ready(() => {
   $('form').on('submit', function (event) {
     // Use event.preventDefault() to prevent the default form submission behaviour
     event.preventDefault();
+    // before validating the input, get rid of any error messages
+    $("#error-message").slideUp();
+    $("#error-message").empty();
     // Implement validation before sending the form data to the server
     //The user should be given an error that their tweet content is too long
     if ($("#tweet-text").val().length > 140) {
-      return alert("Your tweet could not be processed since it exceeds the 140 characters.");
+      $("#error-message").html("&#128680; Your tweet could not be processed since it exceeds the 140 characters. &#128680;");
+      $("#error-message").slideDown({
+        start: function () {
+          $(this).css({
+            display: "flex"
+          })
+        }
+      });
+      return;
     }
     //The user should be given an error that their tweet is empty
     if (!$("#tweet-text").val()) {
-      return alert("Your tweet seems to be empty.");
+      $("#error-message").html("&#128680; Your tweet seems to be empty. &#128680;");
+      $("#error-message").slideDown({
+        start: function () {
+          $(this).css({
+            display: "flex"
+          })
+        }
+      });
+      return;
     }
     // valid content is saved on the data object, the text area and counter must be reseted, a request is sent to the server to update the database
     const data = $(this).serialize()

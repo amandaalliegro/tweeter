@@ -37,7 +37,7 @@ $(document).ready(() => {
       // calls createTweetElement for each tweet
       const $tweet = createTweetElement(elem);
       // takes return value and appends it to the tweets container
-      $('#tweets-container').append($tweet);
+      $('#tweets-container').prepend($tweet);
       
     })
   
@@ -60,6 +60,10 @@ $(document).ready(() => {
     $("#tweet-text").val("");
     $("#tweet-text").parent().find(".counter").text(140);
     $.ajax({ url: '/tweets/', data, method: "POST" }).then(response => {
+      $.ajax({ url: '/tweets/', method: "GET" }).then(response => {
+        $("#tweets-container").empty();
+        renderTweets(response);
+      })
       console.log("Success!")
     }).catch(e => {
       console.log("Failed!");

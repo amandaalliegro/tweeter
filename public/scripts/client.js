@@ -5,34 +5,6 @@
  */
 
 
-// // Fake data taken from initial-tweets.json
-// const data = [
-//   {
-//     "user": {
-//       "name": "Newton",
-//       "avatars": "https://i.imgur.com/73hZDYK.png"
-//       ,
-//       "handle": "@SirIsaac"
-//     },
-//     "content": {
-//       "text": "If I have seen further it is by standing on the shoulders of giants"
-//     },
-//     "created_at": 1461116232227
-//   },
-//   {
-//     "user": {
-//       "name": "Descartes",
-//       "avatars": "https://i.imgur.com/nlhLi3I.png",
-//       "handle": "@rd" },
-//     "content": {
-//       "text": "Je pense , donc je suis"
-//     },
-//     "created_at": 1461113959088
-//   }
-// ]
-
-
-
 $(document).ready(() => {
   const createTweetElement = (tweetObj) => {
     // calculate how many days after the data of creation we are
@@ -70,15 +42,24 @@ $(document).ready(() => {
     })
   
   };
-  //renderTweets(data);
   
   $('form').on('submit', function (event) {
     // Use event.preventDefault() to prevent the default form submission behaviour
     event.preventDefault();
-    /* server is configured to receive form data formatted as a query string, 
-    .serialize() function, which turns the form data into a query string
-    This serialized data should be sent to the server in the data field of the AJAX POST request */
-    $.ajax({ url: '/tweets/', data: $(this).serialize(), method: "POST" }).then(response => {
+    // Implement validation before sending the form data to the server
+    //The user should be given an error that their tweet content is too long
+    if ($("#tweet-text").val().length > 140) {
+      return alert("Your tweet could not be processed since it exceeds the 140 characters.");
+    }
+    //The user should be given an error that their tweet is empty
+    if (!$("#tweet-text").val()) {
+      return alert("Your tweet seems to be empty.");
+    }
+    // valid content is saved on the data object, the text area and counter must be reseted, a request is sent to the server to update the database
+    const data = $(this).serialize()
+    $("#tweet-text").val("");
+    $("#tweet-text").parent().find(".counter").text(140);
+    $.ajax({ url: '/tweets/', data, method: "POST" }).then(response => {
       console.log("Success!")
     }).catch(e => {
       console.log("Failed!");

@@ -79,7 +79,8 @@ $(document).ready(() => {
       });
       return;
     }
-    // valid content is saved on the data object, the text area and counter must be reseted, a request is sent to the server to update the database
+    /* valid content is saved on the data object, the text area and counter must be reseted, 
+    a request is sent to the server to update the database*/
     const data = $(this).serialize();
     $("#tweet-text").val("");
     $("#tweet-text").parent().find(".counter").text(140);
@@ -88,20 +89,14 @@ $(document).ready(() => {
         $("#tweets-container").empty();
         renderTweets(response);
       });
-      console.log("Success!");
-    }).catch(e => {
-      console.log("Failed!");
     });
   });
   //that is responsible for fetching tweets from the http://localhost:8080/tweets page
   const loadTweets = () => {
     //The loadtweets function will use jQuery to make a request to /tweets and receive the array of tweets as JSON
     $.ajax({ url: '/tweets/', method: "GET" }).then(response => {
-      console.log("Successful load!!");
       //so your success callback function will simply call up renderTweets
       renderTweets(response);
-    }).catch(e => {
-      console.log("Failed to load tweets");
     });
   };
   loadTweets();

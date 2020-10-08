@@ -41,8 +41,8 @@ $(document).ready(() => {
     tweetsArray.forEach(elem => {
       // calls createTweetElement for each tweet
       const $tweet = createTweetElement(elem);
-      // takes return value and prepends it to the tweets container
-      $('#tweets-container').prepend($tweet);
+      // takes return value and appends it to the tweets container
+      $('#tweets-container').append($tweet);
       
     })
   

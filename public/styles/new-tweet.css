@@ -10,8 +10,16 @@
   color: dimgray
 }
 
+.new-tweet {
+  display: none;
+  margin: 3em 0 0;
+}
 
-
+@media screen and (min-width:1024px) {
+  .new-tweet {
+    padding: 0 2.5em 0 2.5em;
+  }
+}
 
 #tweet-text {
   resize: none;
@@ -47,7 +55,7 @@ form button {
   color: red;
 }
 
-#compose-tweet:before {
+.new-tweet:before {
   content: "";
   display: block;
   height: 120px; 
@@ -59,7 +67,9 @@ form button {
   justify-content: center;
   align-items: center;
   background-color: #f5bdbd;
-  height: 40px;
+  height: fit-content;
+  width: fit-content;
+  padding: 0.5em;
   border-radius: 10px;
   font-size: 20px;
   color: red;

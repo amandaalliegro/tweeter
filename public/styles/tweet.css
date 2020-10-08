@@ -1,4 +1,8 @@
-article.tweet {
+#tweets-container {
+  padding-top: 2.2em;
+}
+
+.tweet {
   border: 5px solid  dimgray;
   padding: 0.8em 1.2em;
   color: dimgray;
@@ -7,7 +11,7 @@ article.tweet {
   word-break: break-all;
 }
 
-article.tweet:hover {
+.tweet:hover {
   color: black;	  
   -webkit-box-shadow: 10px 10px 0 0 #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
   -moz-box-shadow:    10px 10px 0 0 #ccc;  /* Firefox 3.5 - 3.6 */
@@ -15,28 +19,28 @@ article.tweet:hover {
   opacity: 1;
 }
 
-article.tweet:hover a {
+.tweet:hover a {
   visibility: visible;
 }	
 
-article.tweet header {
+.tweet header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-article.tweet header p {
+.tweet header p {
   padding: 0 0.8em;
 }
 
-article.tweet header a {
+.tweet header a {
   text-decoration: none;
   color: silver;
   font-weight: 600;
   visibility: hidden;
 }
 
-article.tweet footer {
+.tweet footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -44,12 +48,12 @@ article.tweet footer {
   padding: 0.6em;
 }
 
-article.tweet footer p {
+.tweet footer p {
   padding: 0;
   margin: 0;
 }
 
-article.tweet footer div {
+.tweet footer div {
   padding: 0 0.3em;
   color: royalblue;
 } 

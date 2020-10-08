@@ -7,7 +7,7 @@ $(document).ready(() => {
       return $("#tweet-text").focus();
     }
     // else, unfocus the button and hide the form
-    $("#compose-button").blur()
+    $("#compose-button").blur();
     return $('.new-tweet').slideUp();
   });
-})
+});

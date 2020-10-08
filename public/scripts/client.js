@@ -6,18 +6,6 @@
 
 
 $(document).ready(() => {
-  $("#compose-button").on('click', (evt) => {
-    //evt.preventDefault();
-    // if the form is not visible, slide down the form
-    if ($('.new-tweet:visible').length === 0) {
-      $('.new-tweet').slideDown();
-      return $("#tweet-text").focus();
-    }
-    // else, unfocus the button and hide the form
-    $("#compose-button").blur()
-    return $('.new-tweet').slideUp();
-  })
-
   const escape =  function(str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
@@ -53,7 +41,7 @@ $(document).ready(() => {
     tweetsArray.forEach(elem => {
       // calls createTweetElement for each tweet
       const $tweet = createTweetElement(elem);
-      // takes return value and appends it to the tweets container
+      // takes return value and prepends it to the tweets container
       $('#tweets-container').prepend($tweet);
       
     })
